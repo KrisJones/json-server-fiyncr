@@ -21,6 +21,7 @@ export const FeedbackProvider = ({ children }) => {
     console.log('attempting to fetch feedback');
     const response = await fetch(`/feedback?_sort=id&_order=desc`);
     console.log(response);
+
     const data = await response.json();
 
     setFeedback(data);
@@ -36,6 +37,9 @@ export const FeedbackProvider = ({ children }) => {
       },
       body: JSON.stringify(newFeedback),
     });
+
+    console.log('add response');
+    console.log(response);
 
     const data = await response.json();
 
